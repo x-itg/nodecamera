@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-dark-bg text-dark-text font-sans antialiased;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .card-glass {
+    @apply bg-dark-card/80 backdrop-blur-lg border border-dark-border/50 rounded-xl shadow-xl;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-lg hover:shadow-primary-500/25;
+  }
+
+  .btn-danger {
+    @apply bg-destructive hover:bg-red-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-border hover:bg-dark-muted text-dark-text font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+
+  .recording-indicator {
+    @apply relative flex items-center justify-center;
+  }
+
+  .recording-indicator::before {
+    content: '';
+    @apply absolute w-3 h-3 bg-red-500 rounded-full animate-recording-pulse;
+  }
+
+  .video-preview {
+    @apply relative bg-dark-card rounded-xl overflow-hidden shadow-2xl;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-preview video,
+  .video-preview img {
+    @apply w-full h-full object-cover;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-badge-recording {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .status-badge-idle {
+    @apply bg-gray-500/20 text-gray-400 border border-gray-500/30;
+  }
+
+  .status-badge-paused {
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+
+  .input-dark {
+    @apply bg-dark-card border border-dark-border rounded-lg px-3 py-2 text-dark-text focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 outline-none transition-all;
+  }
+
+  .select-dark {
+    @apply bg-dark-card border border-dark-border rounded-lg px-3 py-2 text-dark-text focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 outline-none transition-all cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #1E293B;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #1E293B;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+/* 自定义动画 */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}

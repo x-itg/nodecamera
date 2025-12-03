@@ -1,0 +1,22 @@
+{
+  "name": "usb-camera-recorder",
+  "version": "1.0.0",
+  "description": "USB摄像头录制系统 - 本地视频录制应用",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "build:all": "cd backend && npm run build && cd ../frontend && npm run build",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "cd backend && npm start",
+    "db:init": "cd backend && npm run db:init"
+  },
+  "keywords": [
+    "camera",
+    "recorder",
+    "usb",
+    "ffmpeg",
+    "video"
+  ],
+  "author": "Matrix Agent",
+  "license": "MIT"
+}
